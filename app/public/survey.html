@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Page</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Friend Finder</h1>
+      <hr>
+      <h2 class="text-center">Create Your Profile</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- Questionairre -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Questionairre</h4>
+          </div>
+          <div class="panel-body">
+
+            <form role="form">
+
+              <div class="form-group">
+                <label for="friend-name">Name</label>
+                <input type="text" class="form-control" id="friend-name">
+              </div>
+
+               <div class="form-group">
+                <label for="friend-photo">Photo URL</label>
+                <input type="text" class="form-control" id="friend-photo">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-phone">Phone Number</label>
+                <input type="tel" class="form-control" id="friend-phone">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-age">Age</label>
+                <input type="number" id="friend-age" min="1" max="99">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-going-out">How much do you like going out to bars? (1-5)</label>
+                <input type="number" id="friend-going-out" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-outdoors">How much do you like outdoors activities? (1-5)</label>
+                <input type="number" id="friend-outdoors" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-travel">How much do you like to travel? (1-5)</label>
+                <input type="number" id="friend-travel" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-home">How much do you like hanging out at home or at friends' homes? (1-5)</label>
+                <input type="number" id="friend-home" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-dating">How important is it that your friends are in romantic relationships? (1-5)</label>
+                <input type="number" id="friend-dating" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-education">How important is education level in a friend? (1-5)</label>
+                <input type="number" id="friend-education" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-night">Are you a noght owl? (1-5)</label>
+                <input type="number" id="friend-night" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-reading">How much do you enjoy reading? (1-5)</label>
+                <input type="number" id="friend-reading" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-concerts">How much do you enjoy live music? (1-5)</label>
+                <input type="number" id="friend-concerts" min="1" max="5">
+              </div>
+
+              <div class="form-group">
+                <label for="friend-movies">How much do you enjoy going to movies? (1-5)</label>
+                <input type="number" id="friend-movies" min="1" max="5">
+              </div>
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Your New Friend</h4>
+        </div>
+        <div class="modal-body">
+          <p id="bfName"></p>
+          <div id="bfPhoto"></div>
+          <p id="bfAge"></p>
+          <p id="bfPhoneNumber"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <!-- Links to API and Github -->
+        <p><a href="/api/friends">API Friends</a> | <a href="https://github.com/Dshollings/friendfinder">GitHub Repo</a></p>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
+
+<!-- Sends data to server -->
+<script src="/assets/client-side.js"></script>

@@ -4,7 +4,9 @@
 var friendArray = [
   {
   "name":"Ahmed",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  "photo":"http://via.placeholder.com/300x150",
+  "phoneNumber": 5555555555,
+  "age": 18,
   "scores":[
       5,
       1,
