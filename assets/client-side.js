@@ -24,7 +24,7 @@
     };
 
     var friends;
-
+    // AJAX call to get all friends as JSON - adds to variable friends
     $.ajax({
       url: "/api/friends",
       method: "GET"
@@ -36,32 +36,38 @@
     $.post("/api/friends", newFriend,
     function(data) {
 
-
+    	// Turns JSON into js objects
       friends = JSON.parse(friends);
+      
+      // creates placeholder for bestFriend comparison
       var bestFriend = {
         friend: friends[0],
         compatability: 50
       };
       console.log("pre: " + bestFriend.friend)
 
-
+      // loops through all friends
       for (var i = 0; i < friends.length; i++) {
+        // creates variable to track compatibility scores
         var compatability = 0;
+        // loops through all scores for each friends
         for(var j = 0; j < newFriend.scores.length; j++){
+          // updates compatibilty with difference between scores of user and each friend
           compatability += Math.abs(newFriend.scores[j] - friends[i].scores[j]);
         }
+        // compares compatibility with bestFriend. If a better match, the current friend becomes the best
         if(compatability < bestFriend.compatability){
           bestFriend.friend = friends[i];
           bestFriend.compatability = compatability;
         }
       }
-      console.log(bestFriend.friend)
-      picked = bestFriend.friend;
-      
-      console.log(picked.name + " " + picked.photo + " " + picked.age + " " + picked.phoneNumber)
+      // creates a variable holding the the friend property fo bestFriend
+      var picked = bestFriend.friend;
 
+      // passes the picked friend to a modal and opens modal
       showModal(picked);
       function showModal(data){
+      	// jquery to fill in modal
         $(".modal-body #bfName").html("Name: " + data.name);
         $(".modal-body #bfPhoto").html("<img src=" + data.photo + " alt='profile picture' height='300' width='150'>");
         $(".modal-body #bfAge").html("Age: " + data.age);
@@ -72,6 +78,7 @@
 
       // Clear the form when submitting
       $("#friend-name").val("");
+      $("#friend-photo").val("");
       $("#friend-phone").val("");
       $("#friend-age").val("");
       $("#friend-going-out").val("");
